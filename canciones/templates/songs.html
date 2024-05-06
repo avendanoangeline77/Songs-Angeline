@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs</title>
+</head>
+<body>
+    <h1>Bandas</h1>
+    <ul>
+        {% for Bandas in tracks%}
+        <li>{{ tracks ['Name']}}</li>
+        {% endfor  %}
+    </ul>
+    <h2>Cantantes</h2>
+    <ul>
+        {% for albunes in albums%}
+        <li>{{ albunes ['Title']}}</li>
+        {% endfor  %}
+    </ul>
+    <h2>Genero</h2>
+    <ul>
+        {% for generos in genres%}
+        <li>{{ generos ['Name']}}</li>
+        {% endfor  %}
+    </ul>
+</body>
+</html>

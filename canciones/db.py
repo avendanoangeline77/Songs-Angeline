@@ -12,6 +12,10 @@ db_name = 'informacion.sqlite'
 db_file = os.path.join(db_folder, db_name)
 db_sql_file = 'datos.sql'
 
+def dict_factory(cursor, row):
+   """Arma un diccionario con los valores de la fila."""
+   fields = [column[0] for column in cursor.description]
+   return {key: value for key, value in zip(fields, row)}
 
 def get_db():
     if 'db' not in g:
@@ -25,8 +29,8 @@ def get_db():
 
 
 def close_db(e=None):
-    db = g.pop('db', None)
 
+    db = g.pop('db' , None)
     if db is not None:
         db.close()
 
@@ -35,7 +39,7 @@ def init_db():
 
 
    try:
-     os.makedirs(app.instance_path)
+     os.makedirs(current_app.instance_path)
    except OSError:
         pass
  
@@ -48,7 +52,7 @@ def init_db():
 
 @click.command('init-db')
 def init_db_command():
-    """Clear the existing data and create new tables."""
+    """Clear the existing data+-and create new tables."""
     init_db()
     click.echo('Initialized the database.')
 

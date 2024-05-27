@@ -10,5 +10,13 @@ with app.app_context():
 
 
 
-from . import artists
-app.register_blueprint(artists.bp)
+from . import bandas
+app.register_blueprint(bandas.bp)
+
+
+from . import canciones
+app.register_blueprint(canciones.bp)
+
+
+from . import generos
+app.register_blueprint(generos.bp)

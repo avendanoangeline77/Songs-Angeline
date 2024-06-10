@@ -3,9 +3,9 @@
 {% block header %}canciones{% endblock %}
 {% block content %}
           <ul>
-            {% for canciones in canciones%}
+            {% for cancion in canciones%}
                <li><a href="{{ url_for('detallesCanciones', id= [''])}}">
-                {{canciones['Name']}}
+                {{cancion['Name']}}
                </a>
             
                </li>

@@ -3,9 +3,9 @@
 {% block header %}generos{% endblock %}
 {% block content %}
           <ul>
-            {% for generos in generos%}
+            {% for genero in generos%}
                <li><a href="{{ url_for('detallesGeneros', id= [''])}}">
-                {{generos['Name']}}
+                {{genero['Name']}}
                </a>
             
                </li>

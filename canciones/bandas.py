@@ -16,7 +16,7 @@ def detalles(id):
     artistas = res.fetchone()
     res = con.execute(consulta2, (id,))
     lista_canciones = res.fetchall()
-    pagina = render_template('detallesCanciones.html'
+    pagina = render_template('detallesCanciones.html',
                              artistas=artistas,
                              canciones = lista_canciones)
     return pagina
@@ -31,3 +31,5 @@ def artists():
     lista_de_bandas = bandas.fetchall()
 
     pagina = render_template("bandas.html",  bandas = lista_de_bandas)
+
+    return pagina

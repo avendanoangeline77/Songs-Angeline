@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template
 from . import db
 
-bp = Blueprint("bandas",__name__, url_prefix="/bandas")
+bp = Blueprint("artists",__name__, url_prefix="/artists")
 
-@bp.route('/<init:id>')
+@bp.route('/<int:id>')
 def detalles(id):
     con= db.get_db()
     consulta1 = """
@@ -27,9 +27,9 @@ def artists():
     ask = """
           select name from artists 
         """
-    bandas = data_base.execute(ask)
-    lista_de_bandas = bandas.fetchall()
+    artists = data_base.execute(ask)
+    lista_de_artistas = artists.fetchall()
 
-    pagina = render_template("bandas.html",  bandas = lista_de_bandas)
+    pagina = render_template("artistas.html",  artists = lista_de_artistas)
 
     return pagina

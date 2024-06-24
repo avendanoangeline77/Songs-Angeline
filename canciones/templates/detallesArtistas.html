@@ -2,12 +2,13 @@
 {% block title %}Lista de artistas{% endblock %}
 {% block header %}Artistas{% endblock %}
 {% block content %}
+
           <ul>
-            {% for artistas in artists%}
-               <li><a href="{{ url_for('detalleArtistas', id= ['ArtistId'])}}">
-                {{artistas['Name']}}
-               </a>
-            
+            {% for artistas in canciones%}
+               <li>
+                <a href="{{ url_for('artists.detalles', id=artista['ArtistId'])}}">
+                {{artistas['Title']}}
+               </a>           
                </li>
             {% endfor %}
           </ul>

@@ -7,7 +7,7 @@ bp = Blueprint("artists",__name__, url_prefix="/artists")
 def detalles(id):
     con= db.get_db()
     consulta1 = """
-      SELECT name FROM artists WHERE  ArtistId = ?;
+      SELECT name, ArtistId FROM artists WHERE  ArtistId = ?;
     """
     consulta2 = """
     SELECT Title, AlbumId FROM albums WHERE ArtistId = ?; 
@@ -16,8 +16,8 @@ def detalles(id):
     artistas = res.fetchone()
     res = con.execute(consulta2, (id,))
     lista_canciones = res.fetchall()
-    pagina = render_template('detallesCanciones.html',
-                             artistas=artistas,
+    pagina = render_template('detallesArtistas.html',
+                             artista=artistas,
                              canciones = lista_canciones)
     return pagina
 

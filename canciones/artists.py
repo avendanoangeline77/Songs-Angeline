@@ -13,19 +13,19 @@ def detalles(id):
     SELECT Title, AlbumId FROM albums WHERE ArtistId = ?; 
     """
     res = con.execute(consulta1, (id,))
-    artistas = res.fetchone()
+    artista = res.fetchone()
     res = con.execute(consulta2, (id,))
-    lista_canciones = res.fetchall()
+    lista_albums = res.fetchall()
     pagina = render_template('detallesArtistas.html',
-                             artista=artistas,
-                             canciones = lista_canciones)
+                             artista=artista,
+                             albums = lista_albums)
     return pagina
 
 @bp.route('/')
 def artists():
     data_base = db.get_db()
     ask = """
-          select name from artists 
+          select name, ArtistId from artists 
         """
     artists = data_base.execute(ask)
     lista_de_artistas = artists.fetchall()

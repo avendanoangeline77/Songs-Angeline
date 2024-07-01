@@ -10,7 +10,7 @@
     <h1>artistas</h1>
     <ul>
         {% for artistas in artists %}
-        <li>{{ artistas ['Name']}}</li>
+        <li> <a href="{{ url_for('artists.detalles', id=artistas['ArtistId'])}}">{{ artistas ['Name']}}</a></li>
         {% endfor  %}
     </ul>
 </body>

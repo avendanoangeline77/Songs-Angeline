@@ -1,16 +1,16 @@
 {% extends "base.html"%}
 {% block title %}Lista de artistas{% endblock %}
-{% block header %}Artista {{artista['name']}}{% endblock %}
+{% block header %}Artistas{% endblock %}
 {% block content %}
-Artista {{artista['name']}}
-          <ul>
-            {% for album in albums%}
-               <li>
-                <a href="{{ url_for('albums.detalles', id= album['AlbumId'])}}">
-                {{album['Title']}}
-               </a>           
-               </li>
-            {% endfor %}
-          </ul>
+  
 
+
+<ul>
+  {% for album in albums %}
+    <li> <a href="{{url_for('albums.detalles', id=album['AlbumId'])}}">
+          {{ album['Title']}}
+         </a>
+    </li>
+  {% endfor %}
+</ul>
 {% endblock %}

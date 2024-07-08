@@ -1,13 +1,13 @@
 {% extends "base.html"%}
 {% block title %}Lista de canciones{% endblock %}
-{% block header %}canciones{% endblock %}
+{% block header %}Detalles de la cancion{% endblock %}
 {% block content %}
          <ul>
-           {% for cancion in canciones%}
-              <li><a href="{{ url_for('detallesCanciones', id= [''])}}">
+           {% for cancion in cancion%}
+              <li><a href="{{ url_for('', id= [''])}}">
                {{cancion['Name']}}
               </a>
-          
+                <p> {{cancion['Millinsecons']}} </p>
               </li>
            {% endfor %}
          </ul>

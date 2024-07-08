@@ -24,7 +24,7 @@ def canciones():
 @bp.route('/<int:id>')
 def detalle(id): 
      consulta_canciones = """
-      select Name from tracks
+      select Name,Composer,Milliseconds from tracks
        WHERE TrackId = ? 
      """
 
